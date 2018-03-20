@@ -17,20 +17,31 @@ namespace Discord_Bot.Module
         [Command("random")]
         public async Task RandomTake()
         {
-            if(!Context.Channel.IsNsfw)
+            /*if(!Context.Channel.IsNsfw)
             {
                 await ReplyAsync("Pas ici, on va nous voir :kissing_heart:");
                 return;
+            }*/
+
+            string table = "";
+            string link = "";
+            int ID = 2;
+
+            ID = rnd.Next(1, 3);
+            if(ID == 1)
+            {
+                table = "[troll]";
+            }
+            else if(ID == 2)
+            {
+                table = "[notsafe]";
             }
 
-            string link = "";
-            int ID = 0;
-
-            ID = rnd.Next(1, 84);
+            ID = rnd.Next(1, 42);
             Console.WriteLine(ID);
 
             using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-            using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[Table] WHERE Id='" + ID + "';", connection))
+            using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo]." + table + "WHERE Id='" + ID + "';", connection))
             {
                 connection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
