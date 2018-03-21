@@ -16,5 +16,12 @@ namespace Discord_Bot.Module
             IMessageChannel message = Context.Channel;
             await message.SendFileAsync("C:\\Users\\scrip\\Pictures\\botRessource\\yoga.jpg");
         }
+
+        [Command("teen")]
+        public async Task teen()
+        {
+            IMessageChannel message = Context.Channel;
+            await message.SendFileAsync("C:\\Users\\scrip\\Pictures\\Image\\Les 4 dans la merde\\18834669_1928170464065798_972043687_n.png");
+        }
     }
 }

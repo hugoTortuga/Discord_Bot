@@ -154,6 +154,7 @@
   <ItemGroup>
     <Compile Include="Module\ActionMessage.cs" />
     <Compile Include="Module\Ask.cs" />
+    <Compile Include="Module\Music.cs" />
     <Compile Include="Module\Ping.cs" />
     <Compile Include="Module\Prank.cs" />
     <Compile Include="Module\Random.cs" />
