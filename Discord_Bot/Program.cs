@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+//mathieu ranbo-azerty
 namespace Discord_Bot
 {
     class Program
