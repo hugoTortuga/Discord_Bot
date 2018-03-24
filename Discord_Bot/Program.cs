@@ -30,7 +30,8 @@ namespace Discord_Bot
                 .AddSingleton(commands)
                 .BuildServiceProvider();
 
-            string botToken = "NDI0OTk3MTM5NTg4ODQxNDk3.DZBFFg.rTyfTOJCioQPPj9sCVitVUpWX4E";
+
+            string botToken = Console.ReadLine();
 
             client.Log += Log;
 
