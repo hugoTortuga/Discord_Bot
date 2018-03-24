@@ -18,7 +18,7 @@ namespace Discord_Bot.Module
                 string[] link = new string[3];
 
                 using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type='futurehouse';", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type LIKE 'Future House';", connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -43,7 +43,7 @@ namespace Discord_Bot.Module
                 string[] link = new string[3];
 
                 using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type='trap';", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type LIKE 'Trap';", connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -68,7 +68,7 @@ namespace Discord_Bot.Module
                 string[] link = new string[3];
 
                 using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type='proghouse';", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type LIKE 'Prog House';", connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -93,7 +93,7 @@ namespace Discord_Bot.Module
                 string[] link = new string[3];
 
                 using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type='house';", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type LIKE 'House';", connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -118,7 +118,7 @@ namespace Discord_Bot.Module
                 string[] link = new string[3];
 
                 using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type='dubstep';", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type LIKE 'dubstep';", connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -143,7 +143,7 @@ namespace Discord_Bot.Module
                 string[] link = new string[3];
 
                 using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type='glitchhop';", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo].[music] WHERE type LIKE 'Glitch Hop';", connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())

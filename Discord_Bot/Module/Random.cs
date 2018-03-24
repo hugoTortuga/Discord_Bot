@@ -29,6 +29,7 @@ namespace Discord_Bot.Module
             string table = "";
             string link = "";
             int ID = 2;
+            int max = 0;
 
             ID = rnd.Next(1, 3);
             logMessage += ID.ToString();
@@ -36,13 +37,15 @@ namespace Discord_Bot.Module
             if(ID == 1)
             {
                 table = "[troll]";
+                max = 76;
             }
             else if(ID == 2)
             {
                 table = "[notsafe]";
+                max = 102;
             }
 
-            ID = rnd.Next(1, 76);
+            ID = rnd.Next(1, max);
             Console.WriteLine(logMessage + " " + ID);
 
             using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
