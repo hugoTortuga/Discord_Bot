@@ -36,7 +36,11 @@ namespace Discord_Bot.Module
         [Command("doigt")]
         public async Task DoJul()
         {
-            await ReplyAsync($"{ Context.User.Mention } fait le signe de Jul...Quel merde https://media2.giphy.com/media/afqT2ykIlYcVi/200w.gif");
+            var embed = new EmbedBuilder();
+            embed.WithColor(0, 0, 0);
+            embed.WithImageUrl("https://media2.giphy.com/media/afqT2ykIlYcVi/200w.gif");
+
+            await Context.Channel.SendMessageAsync($"{ Context.User.Mention } fait le signe de Jul...Petite merde !!!", false, embed);
         }
 
         [Command("doigt")]
@@ -69,7 +73,22 @@ namespace Discord_Bot.Module
         [Command("calin")]
         public async Task DoCalin()
         {
-            await ReplyAsync($"{ Context.User.Mention } me fait un calin! C'est mignon https://media3.giphy.com/media/7hW7hXXri33NK/200w.gif");
+            string[] link = new string[3]
+            {
+                "https://media1.tenor.com/images/506aa95bbb0a71351bcaa753eaa2a45c/tenor.gif?itemid=7552075",
+                "https://media1.tenor.com/images/11889c4c994c0634cfcedc8adba9dd6c/tenor.gif?itemid=5634578",
+                "https://media1.tenor.com/images/d6510db0a868cfbff697d7279aa89b61/tenor.gif?itemid=10989534"
+            };
+
+            int i = 0;
+            System.Random rnd = new System.Random(DateTime.Now.Millisecond);
+            i = rnd.Next(0, 5);
+
+            var embed = new EmbedBuilder();
+            embed.WithColor(0, 0, 0);
+            embed.WithImageUrl(link[i]);
+
+            await Context.Channel.SendMessageAsync($"{ Context.User.Mention } me fait un calin! C'est mignon!", false, embed);
         }
 
         [Command("calin")]

@@ -63,7 +63,12 @@ namespace Discord_Bot.Module
                 connection.Close();
             }
 
-            await ReplyAsync(link);
+            var embed = new EmbedBuilder();
+            embed.WithTitle(table);
+            embed.WithColor(0, 0, 255);
+            embed.WithImageUrl(link);
+
+            await Context.Channel.SendMessageAsync("", false, embed);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace Discord_Bot
 
             int argPos = 0;//handle command
 
-            if (message.HasStringPrefix("&", ref argPos) || message.HasMentionPrefix(client.CurrentUser, ref argPos) || message.HasStringPrefix("-", ref argPos))
+            if (message.HasStringPrefix("&", ref argPos) || message.HasMentionPrefix(client.CurrentUser, ref argPos))
             {
                 var context = new SocketCommandContext(client, message);
 
