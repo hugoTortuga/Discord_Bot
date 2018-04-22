@@ -154,7 +154,7 @@
   <ItemGroup>
     <Compile Include="Module\ActionMessage.cs" />
     <Compile Include="Module\Ask.cs" />
-    <Compile Include="Module\Karma_module\word_detect.cs" />
+    <Compile Include="Module\Karma_module\BotReply.cs" />
     <Compile Include="Module\Music.cs" />
     <Compile Include="Module\Ping.cs" />
     <Compile Include="Module\Prank.cs" />
