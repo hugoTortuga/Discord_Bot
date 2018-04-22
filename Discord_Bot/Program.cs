@@ -4,6 +4,7 @@ using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -68,7 +69,7 @@ namespace Discord_Bot
 
             int argPos = 0;//handle command
 
-            if (message.HasStringPrefix("&", ref argPos) || message.HasMentionPrefix(client.CurrentUser, ref argPos))
+            if (message.HasStringPrefix("&", ref argPos) || message.HasMentionPrefix(client.CurrentUser, ref argPos) || message.HasStringPrefix("", ref argPos))
             {
                 var context = new SocketCommandContext(client, message);
 

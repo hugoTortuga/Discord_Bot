@@ -42,12 +42,11 @@ namespace Discord_Bot.Module
             else if(ID == 2)
             {
                 table = "[notsafe]";
-                max = 102;
+                max = 106;
             }
 
             ID = rnd.Next(1, max);
             Console.WriteLine(logMessage + " " + ID);
-
             using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
             using (SqlCommand cmd = new SqlCommand("SELECT link FROM [dbo]." + table + "WHERE Id='" + ID + "';", connection))
             {
@@ -69,6 +68,36 @@ namespace Discord_Bot.Module
             embed.WithImageUrl(link);
 
             await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        [Command("random add NSFW")]
+        public async Task AddRandomNSFW(string link)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[notsafe](link) VALUES('" + link + "');", connection))
+            {
+                connection.Open();
+                cmd.BeginExecuteNonQuery();
+                Console.WriteLine("Image: " + link + " was added to NSFW table");
+                connection.Close();
+            }
+
+            await ReplyAsync("J'ai ajouter ton fantasme a ma base de donnée https://media.giphy.com/media/D6sgbbhYjXNni/giphy.gif");
+        }
+
+        [Command("random add troll")]
+        public async Task AddRandomTroll(string link)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[troll](link) VALUES('" + link + "');", connection))
+            {
+                connection.Open();
+                cmd.BeginExecuteNonQuery();
+                Console.WriteLine("Image: " + link + " was added to troll table");
+                connection.Close();
+            }
+
+            await ReplyAsync("L'humour de merde, enfin bon... https://media.giphy.com/media/DED69Sdz15FiU/giphy.gif");
         }
     }
 }
