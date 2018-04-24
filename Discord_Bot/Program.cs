@@ -32,7 +32,22 @@ namespace Discord_Bot
                 .BuildServiceProvider();
 
 
-            string botToken = Console.ReadLine();
+            string botToken = "";
+
+            using (SqlConnection connection = new SqlConnection("Server=den1.mssql2.gear.host,1433;Initial Catalog=logbot;Persist Security Info=False;User ID=logbot;Password=Mm3l3x9!P?Hf;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (SqlCommand cmd = new SqlCommand("SELECT ressource FROM [dbo].[bot_ressource] WHERE ID=1", connection))
+            {
+                connection.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        botToken = reader.GetString(reader.GetOrdinal("ressource"));
+                    }
+                }
+
+                connection.Close();
+            }
 
             client.Log += Log;
 
