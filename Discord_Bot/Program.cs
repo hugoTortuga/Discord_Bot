@@ -34,8 +34,8 @@ namespace Discord_Bot
 
             string botToken = "";
 
-            using (SqlConnection connection = new SqlConnection("Server=den1.mssql2.gear.host,1433;Initial Catalog=logbot;Persist Security Info=False;User ID=logbot;Password=Mm3l3x9!P?Hf;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            using (SqlCommand cmd = new SqlCommand("SELECT ressource FROM [dbo].[bot_ressource] WHERE ID=1", connection))
+            using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
+            using (SqlCommand cmd = new SqlCommand("SELECT ressource FROM [dbo].[log] WHERE ID=1", connection))
             {
                 connection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
