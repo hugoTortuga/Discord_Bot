@@ -32,22 +32,7 @@ namespace Discord_Bot
                 .BuildServiceProvider();
 
 
-            string botToken = "";
-
-            using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\scrip\\source\\repos\\Discord_Bot\\Discord_Bot\\Database1.mdf;Integrated Security=True"))
-            using (SqlCommand cmd = new SqlCommand("SELECT ressource FROM [dbo].[log] WHERE ID=1", connection))
-            {
-                connection.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        botToken = reader.GetString(reader.GetOrdinal("ressource"));
-                    }
-                }
-
-                connection.Close();
-            }
+            string botToken = Console.ReadLine();
 
             client.Log += Log;
 
