@@ -97,10 +97,10 @@ namespace Discord_Bot.Module
             await ReplyAsync($"{ Context.User.Mention } fait un calin a { user.Mention }!");
         }
 
-        [Command("test")]
+        [Command("ping")]
         public async Task TestCommand()
         {
-            
+            await ReplyAsync("ping");
         }
     }
 }

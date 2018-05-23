@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-//mathieu ranbo-azerty
+
 namespace Discord_Bot
 {
     class Program
@@ -20,24 +20,27 @@ namespace Discord_Bot
         private DiscordSocketClient client;
         private CommandService commands;
         private IServiceProvider services;
+        private Discord_Bot.Module.Language_Recognition.Autonomous autonomous;
+
+        private Dictionary<int, SocketUser> id_client;
+        private int[] hello_table;
 
         public async Task RunBotAsync()
         {
             client = new DiscordSocketClient();
             commands = new CommandService();
+            autonomous = new Module.Language_Recognition.Autonomous();
 
             services = new ServiceCollection()
                 .AddSingleton(client)
                 .AddSingleton(commands)
                 .BuildServiceProvider();
 
-
             string botToken = Console.ReadLine();
 
             client.Log += Log;
 
             await RegisterCommandsAsync();
-
             await client.LoginAsync(TokenType.Bot, botToken);
             await client.StartAsync();
 
@@ -69,7 +72,7 @@ namespace Discord_Bot
 
             int argPos = 0;//handle command
 
-            if (message.HasStringPrefix("&", ref argPos) || message.HasMentionPrefix(client.CurrentUser, ref argPos) || message.HasStringPrefix("", ref argPos))
+            if (message.HasStringPrefix("&", ref argPos) || message.HasMentionPrefix(client.CurrentUser, ref argPos))
             {
                 var context = new SocketCommandContext(client, message);
 
@@ -79,6 +82,11 @@ namespace Discord_Bot
                 {
                     Console.WriteLine(result.ErrorReason);
                 }
+            }
+            else
+            {
+                SocketCommandContext context = new SocketCommandContext(client, message);
+                await autonomous.messageWorking(context, arg);
             }
         }
     }
