@@ -3,6 +3,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -24,19 +25,21 @@ namespace Discord_Bot
 
         private Dictionary<int, SocketUser> id_client;
         private int[] hello_table;
+        private Thread thread;
 
         public async Task RunBotAsync()
         {
             client = new DiscordSocketClient();
             commands = new CommandService();
             autonomous = new Module.Language_Recognition.Autonomous();
+            thread = new Thread(new ThreadStart(autonomous.messagePorcessing));//start thread to process message
 
             services = new ServiceCollection()
                 .AddSingleton(client)
                 .AddSingleton(commands)
                 .BuildServiceProvider();
 
-            string botToken = Console.ReadLine();
+            string botToken = System.IO.File.ReadAllText("Ressources/logging.txt");
 
             client.Log += Log;
 
