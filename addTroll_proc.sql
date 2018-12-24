@@ -1,0 +1,10 @@
+﻿DROP PROCEDURE IF EXISTS addTroll;
+GO
+
+CREATE PROCEDURE addTroll
+	@link TEXT
+AS
+	BEGIN TRANSACTION;
+		INSERT INTO bank(link) VALUES(@link);
+		INSERT INTO trolls(id_image) SELECT id FROM bank WHERE link LIKE @link;
+	COMMIT;

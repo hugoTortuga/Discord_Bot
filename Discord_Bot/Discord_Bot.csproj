@@ -155,17 +155,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module\ActionMessage.cs" />
+    <Compile Include="Module\Bot Admin\Help.cs" />
+    <Compile Include="Module\Command\ActionMessage.cs" />
     <Compile Include="Module\Ask.cs" />
     <Compile Include="Module\Bot Admin\Username.cs" />
+    <Compile Include="Module\Command\EasterEggs\EasterOne.cs" />
+    <Compile Include="Module\Command\EasterEggs\Introduction.cs" />
     <Compile Include="Module\Language Recognition\Autonomous.cs" />
     <Compile Include="Module\Language Recognition\BaseLangage.cs" />
     <Compile Include="Module\Language Recognition\Connexion.cs" />
     <Compile Include="Module\Language Recognition\Karma_module\Karma.cs" />
-    <Compile Include="Module\Music.cs" />
-    <Compile Include="Module\Ping.cs" />
+    <Compile Include="Module\Command\Music.cs" />
+    <Compile Include="Module\Bot Admin\Ping.cs" />
     <Compile Include="Module\Prank.cs" />
-    <Compile Include="Module\Random.cs" />
+    <Compile Include="Module\Command\Random.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,12 +178,12 @@
     <None Include="Properties\webjob-publish-settings.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database1.mdf">
+    <Content Include="Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database1_log.ldf">
+    <Content Include="Database_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Database1.mdf</DependentUpon>
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

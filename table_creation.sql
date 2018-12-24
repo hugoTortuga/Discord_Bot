@@ -1,0 +1,26 @@
+﻿BEGIN TRANSACTION;
+
+CREATE TABLE bank
+(
+	id INT IDENTITY(1,1) NOT NULL,
+	link TEXT NOT NULL,
+	CONSTRAINT bank_PK PRIMARY KEY CLUSTERED (id)
+);
+
+CREATE TABLE trolls
+(
+	id INT IDENTITY(1,1) NOT NULL,
+	id_image INT NOT NULL,
+	CONSTRAINT troll_PK PRIMARY KEY (id, id_image),
+	CONSTRAINT troll_bank_FK FOREIGN KEY (id_image) REFERENCES bank(id)
+);
+
+CREATE TABLE nsfw
+(
+	id INT IDENTITY(1,1) NOT NULL,
+	id_image INT NOT NULL,
+	CONSTRAINT nsfw_PK PRIMARY KEY (id, id_image),
+	CONSTRAINT nsfw_bank_FK FOREIGN KEY (id_image) REFERENCES bank(id)
+);
+
+COMMIT;

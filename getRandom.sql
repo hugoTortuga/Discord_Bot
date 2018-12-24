@@ -1,0 +1,7 @@
+﻿DROP PROCEDURE IF EXISTS getRandom;
+GO
+
+CREATE PROCEDURE getRandom
+	@id INT
+AS
+	SELECT link FROM bank WHERE id=@id;
