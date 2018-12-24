@@ -168,7 +168,7 @@
     <Compile Include="Module\Command\Music.cs" />
     <Compile Include="Module\Bot Admin\Ping.cs" />
     <Compile Include="Module\Prank.cs" />
-    <Compile Include="Module\Command\Random.cs" />
+    <Compile Include="Module\Command\Image.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
