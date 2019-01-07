@@ -24,7 +24,7 @@ namespace Discord_Bot.Module
             string link = "";
 
             System.Random rnd = new System.Random(DateTime.Now.Millisecond);
-            int ID = rnd.Next(1, 77);
+            int ID = rnd.Next(1, 91);
 
             string logMessage = "image troll n°" + ID;
             Console.WriteLine("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + logMessage);
@@ -64,7 +64,7 @@ namespace Discord_Bot.Module
             string link = "";
 
             System.Random rnd = new System.Random(DateTime.Now.Millisecond);
-            int ID = rnd.Next(1, 125);
+            int ID = rnd.Next(1, 129);
 
             string logMessage = "image nsfw n°" + ID;
             Console.WriteLine("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + logMessage);
@@ -104,7 +104,7 @@ namespace Discord_Bot.Module
             string link = "";
 
             System.Random rnd = new System.Random(DateTime.Now.Millisecond);
-            int ID = rnd.Next(1, 200);
+            int ID = rnd.Next(1, 218);
 
             string logMessage = "image bank n°" + ID;
             Console.WriteLine("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + logMessage);

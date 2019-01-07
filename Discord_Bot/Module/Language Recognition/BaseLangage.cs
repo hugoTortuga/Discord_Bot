@@ -11,6 +11,7 @@ namespace Discord_Bot.Module.Language_Recognition
     public class BaseLangage : ModuleBase<SocketCommandContext>
     {
         [Command("Salut")]
+        [Alias("slt", "bonjour", "bjr", "cc", "coucou")]
         public async Task Salutation()
         {
             int choice = 0;
@@ -39,8 +40,15 @@ namespace Discord_Bot.Module.Language_Recognition
         }
 
         [Command("ca va")]
+        [Alias("ca va?", "ca va ?", "sa va", "sa va?", "sa va ?", "comment vas?", "comment vas ?", "comment va")]
         public async Task Etat()
         {
+            if(Context.User.Id.ToString() == "261920234980507658")
+            {
+                await ReplyAsync("Oui Monsieur! Et vous ?");
+                return;
+            }
+
             int choice = 0;
             string etat = "";
 
@@ -66,7 +74,8 @@ namespace Discord_Bot.Module.Language_Recognition
             await ReplyAsync(etat);
         }
 
-        [Command("tobot")]
+        [Command("tes")]
+        [Alias("t\'es", "tu es")]
         public async Task AnalysePhrase(String msg)
         {
             EmbedBuilder embed = new EmbedBuilder();
@@ -95,6 +104,12 @@ namespace Discord_Bot.Module.Language_Recognition
                     return;
                 }
             }
+        }
+
+        [Command("Laisse mon Maitre")]
+        public async Task LaisseMonMaitre()
+        {
+            await ReplyAsync($"{ Context.User.Mention } La ferme le frigidaire, c'est les mêmes règles pour tous !");
         }
     }
 }
